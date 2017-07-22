@@ -8,7 +8,8 @@ Rails.application.routes.draw do
    root 'pages#home'
    
    resources :users, only: [:show]
-    resources :rooms
+   resources :rooms
+   resources :photos
    
 
   # Example of regular route:
