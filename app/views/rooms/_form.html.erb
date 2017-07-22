@@ -91,6 +91,7 @@
                 </div>
             </div>
             
+            <div id="photos"><%= render 'photos/list' %></div>
                 
             <div class="row">
                 <div class="col-md-4">
@@ -161,7 +162,7 @@
                       <%= f.submit "Valide my page", class: "btn btn-primary"%>
                     <% if controller.action_name == 'edit' && Rails.env.development? %>
                       <br /><br /><br />
-                      <%= link_to "I delete my casa", room_path(@room), method: :delete, data: {confirm: "Are you sure?"} %>
+                      <%= link_to "Delete my casa", room_path(@room), method: :delete, data: {confirm: "Are you sure?"} %>
                     <% end %> 
             </div>
             <% end %>
