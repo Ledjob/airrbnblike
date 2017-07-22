@@ -28,6 +28,8 @@ gem 'devise'
 gem 'paperclip'
 #system notification
 gem "toastr-rails"
+#favicon
+gem "font-awesome-sass"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

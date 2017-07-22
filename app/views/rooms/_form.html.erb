@@ -1,0 +1,171 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Become host on CasaCoi
+    </div>
+    <div class="panel-body">
+        <div class="container">
+            
+            <%= form_for @room, html: {multipart: true} do |f| %>
+            <%= render 'shared/errors' %>
+             
+            <div class="row">
+                    <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label>Type of dwelling</label>
+                            <%= f.select :home_type, [["Home","Home"], ["Apartment","Apartment"], ["Villa","Villa"], ["Boat","Boat"],
+                            ["Bed & Breakfast", "Bed & Breakfast"]], id: "home_type", 
+                            prompt: "To select...", class: "form-control" %>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label>Select type of home</label>
+                            <%= f.select :room_type, [["Whole apartment","Whole apartment"], ["Private room","Private room"],
+                            ["Shared room","Shared room"]],
+                            prompt: "To select...", class: "form-control" %>
+                        </div>
+                    </div>
+                
+                    <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label> For how many travelers?</label>
+                            <%= f.select :accommodate, [["1",1], ["2",2],
+                            ["3", 3], ["4",4], ["5 ",5], ["6",6], ["7 or more",7]], 
+                            prompt: "To select...", class: "form-control" %>
+                        </div>
+                    </div>    
+                     
+                </div>
+                
+            <div class="row">
+                    <div class="col-md-4 select">
+                    <div class="form-group">
+                        <label>Room(s)</label>
+                        <%= f.select :bed_room, [["1 room",1], ["2 rooms",2],
+                        ["3 rooms", 3], ["4 rooms or more",4]], 
+                        prompt: "To select...", class: "form-control" %>
+                    </div>
+                    </div>
+                
+                    <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label>Bathroom(s)</label>
+                            <%= f.select :bath_room, [["1 bathroom",1], ["2 bathroom",2],
+                            ["3 bathrooms", 3], ["4 bathrooms or more",4]], 
+                            prompt: "To select...", class: "form-control" %>
+                        </div>
+                    </div>
+                </div>
+                
+            <div class="row">
+                    <div class="form-group">
+                        <label>Give a name to the casa</label>
+                        <%= f.text_field :listing_name, placeholder: "Add a title", class: "form-control" %>
+                    </div>
+                </div>
+                
+            <div class="row">
+                    <div class="form-group">
+                        <label>Accommodation Description</label>
+                        <%= f.text_area :summary, rows:4, placeholder: "Describe the decor, the atmosphere, what is nearby..",
+                        class: "form-control" %>
+                    </div>
+                </div>
+                
+            <div class="row">
+                    <div class="form-group">
+                        <label>Adress</label>
+                        <%= f.text_field :address, placeholder: "Where is your accommodation located?", class: "form-control" %>
+                    </div>
+                </div>
+                
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <span class="btn btn-default btn-file">
+                            <i class = "fa fa-cloud-upload fa-lg"></i> Upload your photos!
+                            <%= file_field_tag "images[]", type: :file, multiple: true %>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+                
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <%= f.check_box :is_wifi %> Wifi
+                    </div>
+                    
+                    <div class="form-group">
+                        <%= f.check_box :is_tv %> TV
+                    </div>
+                    
+                    <div class="form-group">
+                        <%= f.check_box :is_closet %> Wardrobe / Dresser
+                    </div>
+                    
+                    <div class="form-group">
+                        <%= f.check_box :is_shampoo %> Shampoo
+                    </div>
+                    
+                    <div class="form-group">
+                        <%= f.check_box :is_pet_allowed %> Pet allowed
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <%= f.check_box :is_kitchen %> Kitchen
+                    </div>
+                    
+                    <div class="form-group">
+                        <%= f.check_box :is_breakfast %> Breakfast, coffee, tea
+                    </div>
+                    
+                    <div class="form-group">
+                        <%= f.check_box :is_heating %> Heating
+                    </div>
+                    
+                    <div class="form-group">
+                        <%= f.check_box :is_air %> Air conditioner
+                    </div>
+                    
+                    <div class="form-group">
+                        <%= f.check_box :is_smoker %> Smoking allowed
+                    </div>
+                    
+                </div>
+            </div>
+                
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Price / Night</label>
+                        <div class="input-group">
+                                <%= f.text_field :price, placeholder: "ex: 0.03", class: "form-control" %>
+                                <div class="input-group-addon">€</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+            <div class="row">
+                <div class="form-group">
+                    <%= f.check_box :active %> Active page
+                </div>
+            </div>
+                
+            <div class="actions">
+                      <%= f.submit "Valide my page", class: "btn btn-primary"%>
+                    <% if controller.action_name == 'edit' && Rails.env.development? %>
+                      <br /><br /><br />
+                      <%= link_to "I delete my casa", room_path(@room), method: :delete, data: {confirm: "Are you sure?"} %>
+                    <% end %> 
+            </div>
+            <% end %>
+            
+        </div>
+    </div>
+</div>
