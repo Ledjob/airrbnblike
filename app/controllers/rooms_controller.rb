@@ -30,6 +30,14 @@ before_action :require_same_user, only: [:edit, :update]
     def show
         @photos = @room.photos 
     end
+    
+    def destroy
+    @room = Room.find(params[:id])
+    if @room.present?
+      @room.destroy
+    end
+    redirect_to root_url
+    end
  
     def edit
         @photos = @room.photos
@@ -70,7 +78,7 @@ private
  
           end
  
- end
+        end
  
  
 end
