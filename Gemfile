@@ -30,6 +30,8 @@ gem 'paperclip'
 gem "toastr-rails"
 #favicon
 gem "font-awesome-sass"
+#cloud image
+gem 'paperclip-cloudinary'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
