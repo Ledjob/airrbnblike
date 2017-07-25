@@ -11,4 +11,8 @@ class Room < ActiveRecord::Base
                validates :summary, presence: true, length: {maximum: 600}
                validates :address, presence: true
                validates :price, numericality: { greater_than: 0.0100 }
+               validates :city, presence: true
+               
+               geocoded_by :address
+               after_validation :geocode, if: :address_changed?
 end

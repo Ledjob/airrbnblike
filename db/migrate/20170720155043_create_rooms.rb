@@ -20,6 +20,7 @@ class CreateRooms < ActiveRecord::Migration
       t.boolean :is_smoker
       t.boolean :is_pet_allowed
       t.integer :price
+      t.string :address
       t.boolean :active
       t.references :user, index: true, foreign_key: true
 
