@@ -1,6 +1,7 @@
 class Room < ActiveRecord::Base
   belongs_to :user
   has_many :photos
+  has_many :reservations
   
   validates :home_type, presence: true  #la variable type d’habitation sera nécessaire pour la création d’une annonce  
                validates :room_type, presence: true
