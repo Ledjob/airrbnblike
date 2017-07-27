@@ -420,7 +420,22 @@ input[type="checkbox"]:checked:before {
        font-size: 20px;
  
        padding: 10px;
+       
+       padding-left: 10px;
  
        margin-bottom: 10px;
+
+       margin-right: 30px;
+       
+       margin-left: 30px;
+       
+       border-radius: 5px;
+ }
  
+ #message {
+  
+  opacity: 0.8;
+  display: block;
+  color: #FF0000;
+  text-align: center;
  }
