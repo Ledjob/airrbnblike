@@ -26,7 +26,14 @@ class ReservationsController < ApplicationController
           @reservation = current_user.reservations.create(reservation_params)       
           redirect_to @reservation.room, notice: "Your reservation has been accepted"
     end
+    
+    def your_trips
+       @trips = current_user.reservations
+    end
  
+    def your_reservations
+      @rooms = current_user.rooms
+    end
   
 private
 
