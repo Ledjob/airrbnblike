@@ -143,7 +143,7 @@
          
               <div class="col-md-12">
          
-                    <h3>Comments <%= @room.average_rating %> (<%= @reviews.count %>)</h3>
+                    <h3>Comments <span id="average_rating"></span> (<%= @reviews.count %>)</h3>
          
                     <div class="container">
          
@@ -235,3 +235,11 @@
         
     </div>
 </div>
+
+<script>
+            $('#average_rating').raty({
+                path: '/assets',
+                readOnly: true,
+                score: <%= @room.average_rating %>
+            });
+</script>
