@@ -36,6 +36,7 @@ gem 'paperclip-cloudinary'
 gem 'geocoder'
 #datepicker
 gem 'jquery-ui-rails'
+gem 'ransack'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
