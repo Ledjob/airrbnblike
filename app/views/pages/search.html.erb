@@ -1,6 +1,35 @@
 <div id="wrapper">
     <div id="sidebar">
         <div id="widget">
+            
+            <script>
+                  function initMap() {
+                    <% if @arrRooms.length > 0 %>
+                        var uluru = {lat: <%= @arrRooms[0].latitude %>, lng: <%= @arrRooms[0].longitude %>};
+                        var map = new google.maps.Map(document.getElementById('widget'), {
+                          zoom: 13,
+                          center: uluru
+                        });
+                    <% else %>
+                        var uluru = {lat: 48.866667, lng: 2.333333};
+                        var map = new google.maps.Map(document.getElementById('widget'), {
+                          zoom: 4,
+                          center: uluru
+                        });
+                    <% end %>
+                    
+                    <% @arrRooms.each do |room| %>
+                    var marker = new google.maps.Marker({
+                      position: {lat: <%= room.latitude %>, lng: <%= room.longitude %>},
+                      map: map,
+                      title: "<%= room.listing_name %>"
+                    });
+                    <% end %>
+                  }
+                </script>
+                <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTJYYpUAhxxGgEfjjkDnTsUDevroVfPCY&callback=initMap">
+                </script>
                 
         </div>
     </div>
@@ -136,11 +165,12 @@
                         <% end %>
                     <% end %>
                 </div>
-                
             </div>
         </div>
     </div>
 </div>
+
+
 <script>
     $(function() {
         $('#start_date').datepicker({
@@ -170,3 +200,13 @@
         });
     })
 </script>
+
+<script>
+ 
+ $(document).ready(function(){
+ 
+           $("#sidebar").stick_in_parent({offset_top: 20});
+ 
+ });
+ 
+ </script>
