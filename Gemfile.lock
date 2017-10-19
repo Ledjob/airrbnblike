@@ -139,6 +139,9 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails-timeago (2.16.0)
+      actionpack (>= 3.1)
+      activesupport (>= 3.1)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -224,6 +227,7 @@ DEPENDENCIES
   paperclip-cloudinary
   pg
   rails (= 4.2.5)
+  rails-timeago
   rails_12factor
   ransack
   sass-rails (~> 5.0)
