@@ -23,11 +23,15 @@
 
         <div class="actions">
           <%= f.submit "Log in", :class => "btn btn-primary" %>
+          
+          <br>
+          <br>
+          
           <%= link_to "Forgot Password", new_user_password_path, :class => "btn btn-primary" %> 
         </div>
       <% end %>
 
-      <%= render "devise/shared/links" %>
+      
 
   </div>
 </div>
