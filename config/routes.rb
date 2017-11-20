@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, :path => '', 
-                 :path_names => {:sign_in => 'login', :sign_out => 'logout', :edit => 'profile', 
-                          :confirmations => 'confirmations', 
+                 :path_names => {:sign_in => 'login', :sign_out => 'logout', :edit => 'profile'},
+                 :controllers => {:confirmations => 'confirmations',
                           :omniauth_callbacks => 'omniauth_callbacks'
                  }
                  

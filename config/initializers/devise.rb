@@ -2,17 +2,14 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   
-  case Rails.env
- 
-     when "development" 
- 
-     config.omniauth :facebook, '1496065743812132', 'bb076123ba466f0639a05524de871e7e', scope: "email", info_fields: 'email,name' 
- 
+case Rails.env
+when "development" 
+    config.omniauth :facebook, '1573735329376738', 'd8c8ab5e7e09c78ac8b9a7173eaada3d', scope: "email", info_fields: 'email,name' 
     when "production"
- 
     config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'], scope: "email", info_fields: 'email,name'
- 
-  end
+    
+end
+    
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
